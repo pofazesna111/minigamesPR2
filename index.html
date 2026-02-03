@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мини-игры</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+    <button id="gamesBtn">Мини-игры</button>
+    <div id="gamesMenu" class="hidden">
+        <button onclick="showGame('clicker')">Кликер</button>
+        <button onclick="showGame('adventure')">Генератор приключений</button>
+        <button onclick="showGame('guess')">Угадай число</button>
+    </div>
+</nav>
+
+<main>
+    <!-- КЛИКЕР -->
+    <section id="clicker" class="game hidden">
+        <h2>Кликер</h2>
+        <p>Очки: <span id="score">0</span></p>
+        <p>Время: <span id="time">30</span> сек</p>
+        <button id="clickBtn">Клик</button>
+        <button id="resetBtn">Сбросить</button>
+        <p id="clickerResult"></p>
+    </section>
+
+    <!-- ПРИКЛЮЧЕНИЯ -->
+    <section id="adventure" class="game hidden">
+        <h2>Генератор приключений</h2>
+        <button id="generateAdventure">Сгенерировать</button>
+        <p id="adventureText"></p>
+    </section>
+
+    <!-- УГАДАЙ ЧИСЛО -->
+    <section id="guess" class="game hidden">
+        <h2>Угадай число</h2>
+        <input type="number" id="guessInput" min="1" max="100">
+        <button id="guessBtn">Проверить</button>
+        <p id="guessMessage"></p>
+        <p>Попытки: <span id="attempts">10</span></p>
+        <button id="restartBtn" class="hidden">Заново</button>
+    </section>
+</main>
+
+<script src="js/clicker.js"></script>
+<script src="js/adventure.js"></script>
+<script src="js/guess.js"></script>
+
+<script>
+const menu = document.getElementById('gamesMenu');
+document.getElementById('gamesBtn').onclick = () => {
+    menu.classList.toggle('hidden');
+};
+
+function showGame(id) {
+    document.querySelectorAll('.game').forEach(g => g.classList.add('hidden'));
+    document.getElementById(id).classList.remove('hidden');
+}
+</script>
+
+</body>
+</html>
