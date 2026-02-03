@@ -2,14 +2,16 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Мини-игры</title>
+    <title>Mini Games</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<canvas id="stars"></canvas>
+
 <header class="topbar">
-    <h1>🎮 Mini Games</h1>
+    <h1>Mini Games</h1>
     <button id="gamesBtn" class="nav-btn">Игры</button>
 </header>
 
@@ -22,7 +24,7 @@
 <main class="container">
 
     <section id="clicker" class="game card hidden">
-        <h2>🔥 Кликер</h2>
+        <h2>Кликер</h2>
         <div class="stats">
             <span>Очки: <b id="score">0</b></span>
             <span>Время: <b id="time">30</b> сек</span>
@@ -33,17 +35,17 @@
     </section>
 
     <section id="adventure" class="game card hidden">
-        <h2>🗺️ Генератор приключений</h2>
+        <h2>Генератор приключений</h2>
         <button id="generateAdventure" class="primary">Создать приключение</button>
         <p id="adventureText" class="result"></p>
     </section>
 
     <section id="guess" class="game card hidden">
-        <h2>🔢 Угадай число</h2>
+        <h2>Угадай число</h2>
         <input type="number" id="guessInput" min="1" max="100" placeholder="Введите число">
         <button id="guessBtn" class="primary">Проверить</button>
         <p id="guessMessage" class="result"></p>
-        <p class="attempts">Осталось попыток: <b id="attempts">10</b></p>
+        <p class="attempts">Попытки: <b id="attempts">10</b></p>
         <button id="restartBtn" class="secondary hidden">Заново</button>
     </section>
 
@@ -53,15 +55,19 @@
 <script src="js/adventure.js"></script>
 <script src="js/guess.js"></script>
 
+<script src="js/stars.js"></script>
+<script src="js/tilt.js"></script>
+<script src="js/ripple.js"></script>
+
 <script>
-const menu = document.getElementById('gamesMenu');
-document.getElementById('gamesBtn').onclick = () => {
-    menu.classList.toggle('hidden');
+const menu = document.getElementById("gamesMenu");
+document.getElementById("gamesBtn").onclick = () => {
+    menu.classList.toggle("hidden");
 };
 
 function showGame(id) {
-    document.querySelectorAll('.game').forEach(g => g.classList.add('hidden'));
-    document.getElementById(id).classList.remove('hidden');
+    document.querySelectorAll(".game").forEach(g => g.classList.add("hidden"));
+    document.getElementById(id).classList.remove("hidden");
 }
 </script>
 
