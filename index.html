@@ -4,45 +4,49 @@
     <meta charset="UTF-8">
     <title>Мини-игры</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<nav>
-    <button id="gamesBtn">Мини-игры</button>
-    <div id="gamesMenu" class="hidden">
-        <button onclick="showGame('clicker')">Кликер</button>
-        <button onclick="showGame('adventure')">Генератор приключений</button>
-        <button onclick="showGame('guess')">Угадай число</button>
-    </div>
-</nav>
+<header class="topbar">
+    <h1>🎮 Mini Games</h1>
+    <button id="gamesBtn" class="nav-btn">Игры</button>
+</header>
 
-<main>
-    <!-- КЛИКЕР -->
-    <section id="clicker" class="game hidden">
-        <h2>Кликер</h2>
-        <p>Очки: <span id="score">0</span></p>
-        <p>Время: <span id="time">30</span> сек</p>
-        <button id="clickBtn">Клик</button>
-        <button id="resetBtn">Сбросить</button>
-        <p id="clickerResult"></p>
+<div id="gamesMenu" class="menu hidden">
+    <button onclick="showGame('clicker')">Кликер</button>
+    <button onclick="showGame('adventure')">Приключения</button>
+    <button onclick="showGame('guess')">Угадай число</button>
+</div>
+
+<main class="container">
+
+    <section id="clicker" class="game card hidden">
+        <h2>🔥 Кликер</h2>
+        <div class="stats">
+            <span>Очки: <b id="score">0</b></span>
+            <span>Время: <b id="time">30</b> сек</span>
+        </div>
+        <button id="clickBtn" class="primary">КЛИК</button>
+        <button id="resetBtn" class="secondary">Сброс</button>
+        <p id="clickerResult" class="result"></p>
     </section>
 
-    <!-- ПРИКЛЮЧЕНИЯ -->
-    <section id="adventure" class="game hidden">
-        <h2>Генератор приключений</h2>
-        <button id="generateAdventure">Сгенерировать</button>
-        <p id="adventureText"></p>
+    <section id="adventure" class="game card hidden">
+        <h2>🗺️ Генератор приключений</h2>
+        <button id="generateAdventure" class="primary">Создать приключение</button>
+        <p id="adventureText" class="result"></p>
     </section>
 
-    <!-- УГАДАЙ ЧИСЛО -->
-    <section id="guess" class="game hidden">
-        <h2>Угадай число</h2>
-        <input type="number" id="guessInput" min="1" max="100">
-        <button id="guessBtn">Проверить</button>
-        <p id="guessMessage"></p>
-        <p>Попытки: <span id="attempts">10</span></p>
-        <button id="restartBtn" class="hidden">Заново</button>
+    <section id="guess" class="game card hidden">
+        <h2>🔢 Угадай число</h2>
+        <input type="number" id="guessInput" min="1" max="100" placeholder="Введите число">
+        <button id="guessBtn" class="primary">Проверить</button>
+        <p id="guessMessage" class="result"></p>
+        <p class="attempts">Осталось попыток: <b id="attempts">10</b></p>
+        <button id="restartBtn" class="secondary hidden">Заново</button>
     </section>
+
 </main>
 
 <script src="js/clicker.js"></script>
